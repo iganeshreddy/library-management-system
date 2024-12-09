@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ 'Add' if request.endpoint == 'add_book' else 'Edit' }} Book</h1>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.title.label }} {{ form.title(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.author.label }} {{ form.author(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.year.label }} {{ form.year(class="form-control") }}
+    </div>
+    <button type="submit" class="btn btn-primary">{{ 'Add' if request.endpoint == 'add_book' else 'Update' }}</button>
+</form>
+{% endblock %}
